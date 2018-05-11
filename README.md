@@ -14,7 +14,7 @@ I often use [Twitter](https://twitter.com/ "Twitter's Homepage") and the [Pocket
 - S3
 Although I didn't get to it yet, I plan on including API Gateway, EC2, and DynamoDB in order to turn the service into a scalable webapp for anyone to interact with.
 
-## Architecture + how I built it
+## Architecture + How I built it
 ![Architecture Diagram](current_architecture.png)
 
 ### Twitter
@@ -62,7 +62,7 @@ access_token_secret = ""
 dbx_token = ""
 ~~~
 
-Finally, for more information watch the demo video (link).
+Finally, for more information watch the [demo video](https://twitter.com/)
 
 
 
