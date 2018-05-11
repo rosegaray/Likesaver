@@ -52,6 +52,7 @@ Additionally, in order to make this site scalable I would need to integrate API 
 
 You will need to generate auth tokens for your Twitter and Dropbox accounts and put these on a config file, create a kinesis stream, S3 bucket, and 2 lambda functions. One function needs a Kinesis trigger and write access to S3, the other needs an S3 trigger and read access (processing-kinesis-records.py and s3-get.py respectively). Then, run twitter-kinesis.py.
 
+Config file:
 ~~~
 #Twitter auth tokens
 consumer_key = ""
