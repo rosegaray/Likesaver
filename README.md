@@ -5,13 +5,14 @@ Likesaver is a service that automatically downloads pictures from a Twitter user
 (insert link to demo video)
 
 ## Inspiration
-I often use [Twitter](https://twitter.com/ "Twitter's Homepage") and the [Pocket app](https://getpocket.com/ "Pocket's Homepage") as a way to archive articles and blog posts. I also use Twitter likes as a way to find and archive interesting content (mostly memes), so I figured it would be fun to try and create a variant of the Pocket app for picture archiving. Basically, I find myself screenshotting memes from Twitter way too often and I wanted a way to automate this.
+I often use [Twitter](https://twitter.com/ "Twitter's Homepage") and the [Pocket app](https://getpocket.com/ "Pocket's Homepage") as a way to archive interesting articles and blog posts so I figured it would be fun to try and create a variant of Pocket for picture archiving (memes). Basically, I find myself screenshotting memes from Twitter way too often and I wanted a way to automate this.
 
 
 ## AWS Services Used
 - Kinesis
 - Lambda
 - S3
+
 Although I didn't get to it yet, I plan on including API Gateway, EC2, and DynamoDB in order to turn the service into a scalable webapp for anyone to interact with.
 
 ## Architecture + How I built it
@@ -21,16 +22,17 @@ Although I didn't get to it yet, I plan on including API Gateway, EC2, and Dynam
 I used [Tweepy](http://docs.tweepy.org/en/v3.5.0/getting_started.html), a wrapper for the Twitter API, in order to authenticate a user's Twitter and listen for likes from the user's own activity.
 
 ### Kinesis
-I then created a Kinesis stream to collect and process the user's activity data
+In order to make the service scalable, I used a Kinesis stream to capture data. Kinesis streams can collect and analyze large amounts of data in real time, therefore are convenient when dealing with Twitter. Additionally, AWS lets you create multiple Kinesis instances and have them run across a set of auto-scaling EC2 instances. 
+
 
 ### Lambda and S3
-I set up an AWS lambda function to listen for Kinesis records (a user's activity) and capture image URLs from likes. This function downloads the image to an S3 bucket and another function uploads it to a Dropbox folder.
+I set up an AWS lambda function to listen for Kinesis records (a user's activity) and capture image URLs from likes. One function downloads the image to an S3 bucket and another function uploads it to a Dropbox folder.
 
 
 ## Challenges I ran into
-Initially, I wanted to use Google Photos in place of Dropbox since most people tend to use it to store images, however I ran into a lot of trouble using the Picasa API and decided to use Dropbox's since the setup process is pretty quick. 
+Initially, I wanted to use Google Photos in place of Dropbox since most people tend to use it to store images, however I ran into a lot of trouble using the Google Picasa API and decided to use Dropbox's(the setup process is pretty quick). 
 
-Additionally, due to time constrainst, I wasn't able to integrate DynamoDB and EC2. Right now, I use a config file where I upload my own Twitter and Dropbox auth credentials. In order to turn Likesaver into a scalable webapp, I would need to create and host a website on EC2 so that users can log in by authenticating their Twitter and Dropbox accounts. This would require the creation of a DynamoDB table. 
+Due to time constraints, I wasn't able to integrate DynamoDB and EC2. Right now, I use a config file where I upload my own Twitter and Dropbox auth credentials. In order to turn Likesaver into a scalable webapp, I would need to create and host a website on EC2 so that users can log in by authenticating their Twitter and Dropbox accounts. This would require the creation of a DynamoDB table to store user credentials. 
 
 ## What I learned
 My goal was to learn to integrate different AWS services and mimic functionality similar to the Pocket app. I learned to create AWS IAM roles and permissions since I had to connect lambda functions to Kinesis and S3. This was a bit tricky to figure out because you only want to allow permissions and policies that are absolutely necessary. I also became pretty famliar with CloudTrail logs while I debugged my lambda functions.
@@ -43,7 +45,7 @@ The Dynamo schema would include:
 - A users table with "twitter_handle" as the primary key
 - 2 attributtes - the user's twitter auth and dropbox auth tokens
 
-Additionally, in order to make this site scalable I would need to integrate API Gateway to manage calls to the Twitter API.
+Additionally, in order to make this site scalable I would need to create an EC2 auto-scaling group and integrate API Gateway to manage calls to the Twitter API.
 
 ![Desired Architecture Diagram](final_architecture.png)
 
