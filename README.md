@@ -5,7 +5,7 @@ Likesaver is a service that automatically downloads pictures from a Twitter user
 (insert link to demo video)
 
 ## Inspiration
-I often use [Twitter](https://twitter.com/ "Twitter's Homepage") and the [Pocket app](https://getpocket.com/ "Pocket's Homepage") as a way to archive interesting articles and blog posts so I figured it would be fun to try and create a variant of Pocket for picture archiving (memes). Basically, I find myself screenshotting memes from Twitter way too often and I wanted a way to automate this.
+I often use [Twitter](https://twitter.com/ "Twitter's Homepage") and the [Pocket app](https://getpocket.com/ "Pocket's Homepage") as a way to archive interesting articles and blog posts so I figured it would be fun to try and create a variant of Pocket for picture archiving. Basically, I find myself screenshotting memes from Twitter way too often and I wanted a way to automate this.
 
 
 ## AWS Services Used
