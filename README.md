@@ -1,5 +1,5 @@
 # :heart: Likesaver 
-Likesaver is a service that automatically downloads pictures from a Twitter user's "like" activity to a designated Dropbox folder. It allows a user to automatically save pictures from Twitter simply by ‘liking’ the tweet containing the picture, as opposed to taking a screenshot or saving manually.
+Likesaver is a service that automatically downloads pictures from a Twitter user's "like" activity to a designated Dropbox folder. It allows a user to automatically save pictures from Twitter simply by "liking" the tweet containing the picture, as opposed to taking a screenshot or saving manually.
 
 ## Demo
 (insert link to demo video)
