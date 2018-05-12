@@ -2,7 +2,7 @@
 Likesaver is a service that automatically downloads pictures from a Twitter user's "like" activity to a designated Dropbox folder. It allows a user to automatically save pictures from Twitter simply by "liking" the tweet containing the picture, as opposed to taking a screenshot or saving manually.
 
 ## Demo
-(insert link to demo video)
+https://www.useloom.com/share/2bd5b1c473614cd58e377e978c75adee 
 
 ## Inspiration
 I find myself screenshotting memes from [Twitter](https://twitter.com/ "Twitter's Homepage") way too often and I wanted a way to automate this. In addition to screenshotting, I also use the [Pocket app](https://getpocket.com/ "Pocket's Homepage") as a way to archive interesting articles and blog posts so I figured it would be a fun learning experience to try and create a variant of Pocket for picture archiving. 
@@ -64,7 +64,7 @@ access_token_secret = ""
 dbx_token = ""
 ~~~
 
-Finally, for more information watch the [demo video](https://twitter.com/)
+Finally, for more information watch the [demo video](https://www.useloom.com/share/2bd5b1c473614cd58e377e978c75adee)
 
 
 
