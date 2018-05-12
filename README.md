@@ -1,5 +1,5 @@
 # :heart: Likesaver 
-Likesaver is a service that automatically downloads pictures from a Twitter user's "like" activity to a designated Dropbox folder. 
+Likesaver is a service that automatically downloads pictures from a Twitter user's "like" activity to a designated Dropbox folder. It allows a user to automatically save pictures from Twitter simply by ‘liking’ the tweet containing the picture, as opposed to taking a screenshot or saving manually.
 
 ## Demo
 (insert link to demo video)
@@ -29,11 +29,11 @@ I set up an AWS lambda function to listen for Kinesis records (a user's activity
 
 
 ## Challenges I ran into
-Initially, I wanted to use Google Photos in place of Dropbox since most people tend to use it to store images, however I ran into a lot of trouble using the Google Picasa API and decided to use Dropbox's(the setup process is pretty quick). 
+Initially, I wanted to use Google Photos in place of Dropbox since most people tend to use it to store images, however I ran into a lot of trouble using the Google Picasa API and decided to use Dropbox's (the setup process is pretty quick). 
 
 
 ## What I learned
-My goal was to learn to integrate different AWS services and mimic functionality similar to the Pocket app. I learned to create AWS IAM roles and permissions since I had to connect lambda functions to Kinesis and S3. One challenge was determining which permissions and policies were absolutely necessary. I also learned to use CloudTrail logs while debugging my lambda functions
+My goal was to learn to integrate different AWS services and mimic functionality similar to the Pocket app. I learned to create AWS IAM roles and permissions since I had to connect lambda functions to Kinesis and S3. One challenge was determining which permissions and policies were absolutely necessary. I also learned to use CloudTrail logs while debugging my lambda functions. 
 Finally, I learned a lot about the importance of incremental development and good API documentation. 
 
 ## What's next?
