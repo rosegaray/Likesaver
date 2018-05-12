@@ -13,16 +13,15 @@ I find myself screenshotting memes from Twitter way too often and I wanted a way
 - Lambda
 - S3
 
-Although I didn't get to it yet, I plan on including API Gateway, EC2, and DynamoDB in order to turn the service into a scalable webapp for anyone to interact with.
 
 ## Architecture + How I built it
 ![Architecture Diagram](current_architecture.png)
 
 ### Twitter
-I used [Tweepy](http://docs.tweepy.org/en/v3.5.0/getting_started.html), a wrapper for the Twitter API, in order to authenticate a user's Twitter and listen for likes from the user's own activity.
+I used [Tweepy](http://docs.tweepy.org/en/v3.5.0/getting_started.html), a wrapper for the Twitter API, to authenticate a user's Twitter and listen for likes from the user's own activity.
 
 ### Kinesis
-In order to make the service scalable, I used a Kinesis stream to capture data. Kinesis streams can collect and analyze large amounts of data in real time, therefore are convenient when dealing with Twitter. Additionally, AWS lets you create multiple Kinesis instances and have them run across a set of auto-scaling EC2 instances. 
+In order to make the service scalable, I used a Kinesis stream to capture data. Kinesis streams can collect and analyze large amounts of data in real time and are convenient when dealing with Twitter. Additionally, AWS lets you create multiple Kinesis instances and have them run across a set of auto-scaling EC2 instances. 
 
 
 ### Lambda and S3
@@ -32,15 +31,15 @@ I set up an AWS lambda function to listen for Kinesis records (a user's activity
 ## Challenges I ran into
 Initially, I wanted to use Google Photos in place of Dropbox since most people tend to use it to store images, however I ran into a lot of trouble using the Google Picasa API and decided to use Dropbox's(the setup process is pretty quick). 
 
-Due to time constraints, I wasn't able to integrate DynamoDB and EC2. Right now, I use a config file where I upload my own Twitter and Dropbox auth credentials. In order to turn Likesaver into a scalable webapp, I would need to create and host a website on EC2 so that users can log in by authenticating their Twitter and Dropbox accounts. This would require the creation of a DynamoDB table to store user credentials. 
 
 ## What I learned
-My goal was to learn to integrate different AWS services and mimic functionality similar to the Pocket app. I learned to create AWS IAM roles and permissions since I had to connect lambda functions to Kinesis and S3. This was a bit tricky to figure out because you only want to allow permissions and policies that are absolutely necessary. I also became pretty famliar with CloudTrail logs while I debugged my lambda functions.
+My goal was to learn to integrate different AWS services and mimic functionality similar to the Pocket app. I learned to create AWS IAM roles and permissions since I had to connect lambda functions to Kinesis and S3. One challenge was determining which permissions and policies were absolutely necessary. I also learned to use CloudTrail logs while debugging my lambda functions
 Finally, I learned a lot about the importance of incremental development and good API documentation. 
 
 ## What's next?
-Now that I have tested the basic functionality, my next steps are to create a website and integrate Dynamo and EC2. 
+Now that I have tested the basic functionality, my next steps are to create a website and integrate Dynamo and EC2.
 
+Right now, I use a config file where I upload my own Twitter and Dropbox auth credentials. In order to turn Likesaver into a scalable webapp, I would need to create and host a website on EC2 so that users can log in by authenticating their Twitter and Dropbox accounts. This would require the creation of a DynamoDB table to store user credentials. 
 The Dynamo schema would include:
 - A users table with "twitter_handle" as the primary key
 - 2 attributtes - the user's twitter auth and dropbox auth tokens
